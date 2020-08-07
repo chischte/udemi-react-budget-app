@@ -1,1 +1,203 @@
-udemy-react-budget-app
+********************************************************************************
+NOTES FOR UDEMY REACT COURSE ***************************************************
+********************************************************************************
+
+I www.udemy.com/course/react-2nd-edition
+
+SETUP CLONED REPOSITORY --------------------------------------------------------
+$ npm install (installs dependencies)
+$ npm run dev-server
+
+
+VARIOUS NOTES AND COMMANDS -----------------------------------------------------
+JSX -> Javascript XML
+$ yarn install (for example after deleting node modules)
+
+VSCode Extensions:s
+• Babel ES6/ES7
+• Path Intellisense
+
+• const and let are block level scoped, var is not
+• use const as default, use let when value needs to be reassignable, do not use var
+
+• const that=this; :)
+• "class" is "className" in JSX
+
+•  return `${this.name} is ${this.age} year(s) old.`
+
+• ! undefined -> true  !!undefined -> false
+• !'test'     -> false !!'test'    -> true
+
+• use .trim() to remove leading and ending spaces in an input field 
+
+• use concat instead of push to add a value to an array
+
+• "stateless functional component"
+  ...can use props (cannot use state)
+  ...faster
+
+• Lifecycle methotds (only available in class based components, not in stateless functional components)
+  • componentDidMount(), componentDidUpdate(), ...
+
+• !!! __dirname -> returns the root path of the project !!!
+
+• default exports can be imported by any name desired
+
+
+SETUP --------------------------------------------------------------------------
+
+• Install VSCode
+• Install node.js
+• Install yarn with npm install -g yarn (restart)
+
+TUTORIAL 1 - INDECISION APP*****************************************************
+
+• Create index.html
+$ npm install -g live-server
+$ live server
+
+Open Command Palette ---> Ctrl+Shift+P and add following line to settings.json:
+"terminal.integrated.shellArgs.windows": ["-ExecutionPolicy", "Bypass"]
+
+run live-server "folder" e.g. $ live-server public
+
+babeljs.io
+
+SETUP BABEL --------------------------------------------------------------------
+
+https://stackoverflow.com/questions/61116908/react-couldnt-find-preset-env-react-relative-to-directory-src
+
+
+    If previous attepmpts did not work:
+      Delete all of your global NPM/Yarn modules related to Babel.
+      On Windows mine were in c:\users\user\appdata\roaming\npm\nodemodules as it was installed globally.
+    
+    Then:
+    npm init the project
+
+    npm install --save-dev @babel/core @babel/cli
+
+    npm install --save-dev @babel/preset-react @babel/preset-env
+
+    npx babel .\src\app.js -o .\public\scripts\app.js --presets=@babel/preset-env,@babel/preset-react --watch
+
+Start up live server:
+$live server public
+
+INSTALL CHROME / FIREFOX REACT DEVTOOLS ----------------------------------------
+• see state and props in the browser!
+
+USE SCRIPTS --------------------------------------------------------------------
+
+Uninstall global installed dependencies
+  $ npm uninstall -g babel-cli
+  $ npm uninstall -g live-server
+
+Install dependencies locally:
+  $ npm install live-server
+  $ npm install babel-cli@6.24.1
+
+Add scripts:
+    "scripts": {
+    "serve": "live-server public/",
+    "build-babel": "babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch"
+  }
+Run scripts:
+  $ npm run serve
+  $ npm run build-babel
+
+INSTALL AND SETUP WEBPACK ------------------------------------------------------
+  $ npm i webpack
+  $ npm i webpack-cli
+  $ npm i babel-core
+  $ npm uninstall --save babel-loader
+  ...ran into problems, fixed by:
+  $ npm uninstall --save @babel/core
+  $ npm install --save-dev babel-loader@^7 (webpack plugin)
+
+Add script:
+   "scripts": {
+   "build":"webpack --watch"
+  }
+
+Create webpack.config.js (int the root folder)
+Create .babelrc
+
+Update index.html content (new script location)
+
+$ npm run build 
+$ npm run serve" for the live-server
+
+SETUP WEBPACK DEVTOOL ----------------------------------------------------------
+webpack.js.org ...DEVTOOL
+...add entry in the webpack.config.
+..shows in the browser devtools where the error happend
+
+SETUP WEBPACK DevServer --------------------------------------------------------
+..alternative to live-server
+  
+$ npm i webpack-dev-server
+
+add entry in webpack.config.js
+add script to package.json:
+  "dev-server": "webpack-dev-server"
+
+With webpack-dev-server installed only a single script is required to run!
+"serve" and "build" script are obsolete
+
+************************
+* $ npm run dev-server * ($ npm run build is only used to create a bundle.js for production)
+************************
+BABEL "transform-class-properties" PLUGIN --------------------------------------
+
+$ npm install babel-plugin-transform-class-properties
+add "plugins" entry in .babelrc:
+  "plugins":[
+        "transform-class-properties"
+    ]
+
+...no constructor required in classes
+
+REACT MODAL --------------------------------------------------------------------
+
+$ npm i react-modal
+
+CSS ----------------------------------------------------------------------------
+
+$ npm i style-loader
+$ npm i css-loader
+
+update webpack config to work with css
+import styles.css in app.js
+
+SCSS ---------------------------------------------------------------------------
+sass-lang.com
+run
+$ npm i sass-loader
+$ npm i node-sass
+
+update file endings and imports from css to scss
+update webpack config to work with scss
+
+create styles.scss and _base.scss, import _base.scss in styles.scss
+
+$ npm i normalize.css
+import 'normalize.css/normalize.css';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*END*OF*NOTES*******************************************************************
