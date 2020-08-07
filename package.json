@@ -1,10 +1,10 @@
 {
-  "name": "indecision-app",
+  "name": "boilerplate",
   "version": "1.0.0",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chischte/udemy-react-indecision-app.git"
+    "url": "git+https://github.com/chischte/udemy-react-budget-app.git"
   },
   "author": "Michael Wettstein <chischte@gmx.ch>",
   "license": "MIT",
