@@ -184,6 +184,16 @@ create styles.scss and _base.scss, import _base.scss in styles.scss
 $ npm i normalize.css
 import 'normalize.css/normalize.css';
 
+REACT ROUTER -------------------------------------------------------------------
+
+$ npm i react-router-dom
+
+in app.js import { BrowserRouter, Route } from "react-router-dom";
+
+in webpack.config add:
+  historyApiFallback:true ...to the devServer
+
+
 
 
 
